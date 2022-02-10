@@ -12,6 +12,9 @@ from matplotlib.patches import Circle
 import streamlit.components.v1 as components  
 
 
+image1 = Image.open(r'C:/Users/isabe/.streamlit/titulo11.png')
+st.image(image1,use_column_width='always') 
+st.sidebar.image(image1,use_column_width='always')
 st.set_page_config(page_title="Órbitas Relativísticas", page_icon=":comet:")
 
 image1 = Image.open(r'C:/Users/isabe/.streamlit/titulo11.png')
