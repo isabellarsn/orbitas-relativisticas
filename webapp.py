@@ -224,7 +224,7 @@ if pagina_selecionada == "Óbita de corpos celestes":
     
         for i in range(len(x)):
             animate(i)    
-            time.sleep(10e-200)
+            time.sleep(0.01)
 
     
 elif pagina_selecionada == "Órbita de raios de luz":
