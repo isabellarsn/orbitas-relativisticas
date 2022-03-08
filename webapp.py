@@ -6,14 +6,11 @@ from scipy.integrate import quad
 import math
 from matplotlib import animation
 from IPython.display import HTML
+import time
 from PIL import Image
 import matplotlib.animation as animation
 from matplotlib.patches import Circle
 import streamlit.components.v1 as components  
-import time
-
-
-
 
 st.set_page_config(page_title="Órbitas Relativísticas", page_icon=":comet:")
 
