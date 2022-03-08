@@ -10,6 +10,7 @@ from PIL import Image
 import matplotlib.animation as animation
 from matplotlib.patches import Circle
 import streamlit.components.v1 as components  
+import time
 
 
 
