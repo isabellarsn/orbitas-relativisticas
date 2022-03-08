@@ -206,23 +206,25 @@ if pagina_selecionada == "Óbita de corpos celestes":
 
         graph, = plt.plot([], [], color="gold", markersize=3, label='Tempo: 0 s')
         L = plt.legend(loc=1)
+        o_plot = st.pyplot(plt)
 
-        plt.close()  # Não mostra a imagem de fundo
+        #plt.close()  # Não mostra a imagem de fundo
 
         def animate(i):
             lab = 'Tempo: ' + str(round(dt*i * (rs_sun / 2.0) * 3e-5 , -int(math.floor(math.log10(abs(dt*(rs_sun / 2.0)*3e-5)))))) + ' s'
             graph.set_data(x[:i], y[:i])
             L.get_texts()[0].set_text(lab)  # Atualiza a legenda a cada frame
-            return graph,
+            o_plot.pyplot(plt)
+            #return graph,
 
         skipframes = int(len(x)/200)
         if skipframes == 0:
             skipframes = 1
 
-        ani1 = animation.FuncAnimation(fig, animate, frames=range(0,len(x),skipframes), interval=30, blit = True, repeat = False)
-        HTML(ani1.to_jshtml())
-
-        components.html(ani1.to_jshtml(),height=800)
+    
+        for i in range(len(x)):
+            animate(i)    
+            time.sleep(10e-200)
 
     
 elif pagina_selecionada == "Órbita de raios de luz":
