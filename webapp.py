@@ -4,17 +4,19 @@ import matplotlib.pyplot as plt
 import sympy as sp
 from scipy.integrate import quad
 import math
-from matplotlib import animation
+#from matplotlib import animation
 from IPython.display import HTML
 import time
+#import seaborn as sns
 from PIL import Image
-import matplotlib.animation as animation
+from matplotlib.animation import FuncAnimation
 from matplotlib.patches import Circle
-import streamlit.components.v1 as components  
+import streamlit.components.v1 as components 
+
 
 st.set_page_config(page_title="Órbitas Relativísticas", page_icon=":comet:")
 
-image1 = Image.open('titulo11.png')
+image1 = Image.open(r'C:/Users/isabe/.streamlit/titulo11.png')
 st.image(image1,use_column_width='always') 
 st.sidebar.image(image1,use_column_width='always')
 pagina_selecionada = st.sidebar.selectbox("Selecione um tipo de órbita", ['Óbita de corpos celestes', 'Órbita de raios de luz'])
@@ -33,7 +35,7 @@ if pagina_selecionada == "Óbita de corpos celestes":
     st.title("Corpo celeste orbitando um buraco negro")
     st.write("E se, de repente, o Sol se transformasse em um buraco negro?")
     st.write("Para isso, toda sua massa, de 2 $\cdot$ 10$^{30}$ kg (hoje espalhada numa esfera com cerca de  700.000 km de raio), deveria ser comprimida numa região com raio de cerca de  3  km.")
-    image = Image.open('orbitaceleste.png')
+    image = Image.open(r'C:/Users/isabe/.streamlit/orbitaceleste.png')
     st.image(image)
     st.write("O protótipo de simulador abaixo nos permite explorar a órbita de corpos (planetas, asteroides ou espaço-naves) que se aventurassem nas vizinhanças de um buraco negro com a mesma massa do Sol.")
     st.write("Nele você pode alterar (ver figura acima):")
@@ -179,6 +181,7 @@ if pagina_selecionada == "Óbita de corpos celestes":
                 x[i] = (math.cos(accphi[i])) / utotal[i] * (rs_sun / 2.0)
                 y[i] = (math.sin(accphi[i])) / utotal[i] * (rs_sun / 2.0)
 
+        #sns.set()
         fig = plt.figure()
 
         plt.xlabel("x (km)")
@@ -224,11 +227,19 @@ if pagina_selecionada == "Óbita de corpos celestes":
             animate(i)    
             time.sleep(0.01)
 
+        #ani1 = FuncAnimation(fig, animate, frames=range(0,len(x),skipframes), interval=30, blit = True, repeat = False)
+        
+        #HTML(ani1.to_jshtml())
+        #components.html(ani1.to_jshtml(),height=800)
+
+        #st.pyplot(fig)
+        #width = st.sidebar.slider("plot width", 1, 25, 3)
+
     
 elif pagina_selecionada == "Órbita de raios de luz":
     st.title("Luz orbitando um buraco negro")
     st.write("A teoria da relatividade geral de Einstein prevê que a trajetória da luz deve ser defletida quando passa nas vizinhanças de um corpo massivo. O protótipo de simulador abaixo nos permite explorar a órbita raios de luz ao redor de um buraco negro com a mesma massa do Sol.")
-    image = Image.open('orbitaluz.png')
+    image = Image.open(r'C:/Users/isabe/.streamlit/orbitaluz.png')
     st.image(image)
     st.write("Nele, você pode alterar (ver figura acima):")
     st.write("* O parâmetro de impacto (em km): $d$")
